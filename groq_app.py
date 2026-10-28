@@ -1,7 +1,9 @@
 
 import os
 import streamlit as st
+from dotenv import load_dotenv
 from groq import Groq
+
 # --------------------------------------------------
 # 1. Page Configuration
 # --------------------------------------------------
@@ -12,9 +14,11 @@ st.set_page_config(
 )
 
 # --------------------------------------------------
-# --------------------------------------------------
 # 2. Load API Key
+# Supports local .env and Streamlit Cloud Secrets
 # --------------------------------------------------
+load_dotenv()
+
 api_key = os.getenv("GROQ_API_KEY")
 
 if not api_key:
@@ -25,8 +29,8 @@ if not api_key:
 
 if not api_key:
     st.error(
-        "GROQ_API_KEY is missing. Please configure "
-        "it in Streamlit Cloud Secrets."
+        "GROQ_API_KEY is missing. Add it to your local "
+        ".env file or Streamlit Cloud Secrets."
     )
     st.stop()
 
