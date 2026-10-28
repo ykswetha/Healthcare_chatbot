@@ -1,7 +1,6 @@
 
 import os
 import streamlit as st
-from dotenv import load_dotenv
 from groq import Groq
 
 # --------------------------------------------------
@@ -17,7 +16,6 @@ st.set_page_config(
 # 2. Load API Key
 # Supports local .env and Streamlit Cloud Secrets
 # --------------------------------------------------
-load_dotenv()
 
 api_key = os.getenv("groq")
 
