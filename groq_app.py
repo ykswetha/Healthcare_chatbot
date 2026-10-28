@@ -19,11 +19,11 @@ st.set_page_config(
 # --------------------------------------------------
 load_dotenv()
 
-api_key = os.getenv("GROQ_API_KEY")
+api_key = os.getenv("groq")
 
 if not api_key:
     try:
-        api_key = st.secrets["GROQ_API_KEY"]
+        api_key = st.secrets["groq"]
     except (FileNotFoundError, KeyError):
         api_key = None
 
